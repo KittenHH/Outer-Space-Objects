@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>SPACE</title>
+</head>
+<body style="background-color:grey">
+	<style>
+		#ScoreBoard {
+			position: relative;
+			text-align: center;
+			background-color: black;
+			color: white;
+		}
+
+	</style>
+	<div id="ScoreBoard"><b id="P1Score">P1 score:</b>
+	<b id="P2Score">P2 score: </b></div>
+	<canvas id="MyCanvas" width="400" height="400" onclick="ReturnToTitle()" style="background-color:black;"></canvas>
+	<div>WASD to move, Space to shoot</div>
+	<script>
+		//set up game canvas
+		const GameCanvas = document.getElementById('MyCanvas');
+		const ctx = GameCanvas.getContext('2d');
+		GameCanvas.width = (window.innerWidth/10) * 9.875;
+		GameCanvas.height = (window.innerHeight/10) * 9;
+		//sets up score board
+		const ScoreBoard = document.getElementById('ScoreBoard');
+
+		const p1Score = document.getElementById('P1Score');
+		const P2Score = document.getElementById('P2Score');
+		
+		//vars to make everything slave
+		const GridX = GameCanvas.width/100;
+		const GridY = GameCanvas.height/100;
+		//Game loop variable
+		let GameLoop;
+		//list of all Objects on the sreen 
+		const ObjList = [];
+		const Effects = [];
+		//this keeps track of how many frames
+		let Frames = 0;
+
+		function ReturnToTitle() {window.location.href="TitleScreen.html";}
+	</script>
+	<script src="Player.js"></script>
+	<script src="PowerUps.js"></script>
+	<script src="Rock.js"></script>
+	<script src="Effects.js"></script>
+	<script src="main.js"></script>
+</body>
+</html>
